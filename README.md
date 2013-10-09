@@ -28,6 +28,6 @@ GET AN APP
 * “Foraging for Edible and Medicinal Wild Plants” — interactive app from “Wildman” Steve Brill due out this month (wildmanstevebrill.com)
 * [ProjectNoah](http://www.projectnoah.org/)
     
-PRESS
+PRESS & MORE RESOURCES
 * http://www.oregonlive.com/mix/index.ssf/how-to/field-guide-to-foraging-in-the-northwest.html
-
+* http://edibleportland.com/2012/03/wild-food-foraging-resources/

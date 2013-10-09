@@ -1,9 +1,9 @@
-forager
+FORAGER
 =======
 
 inspired by UrbanEdibles.org - the next course
 
-== Resources & Research ==
+### Resources & Research
 A quick roundup of related datasets, communities, resources, etc.
 
 DATA & MAPS

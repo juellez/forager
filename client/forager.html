@@ -1,0 +1,143 @@
+<head>
+  <title>Forager :: an edibles atlas + journal </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  {{> page}}
+</body>
+
+<template name="page">
+  {{#if showCreateDialog}}
+    {{> createDialog}}
+  {{/if}}
+
+  <div class="container">
+    <div class="row">
+      <div class="span1"> </div>
+
+      <div class="span10">
+        <div class="header row">
+          <div class="span5">
+            <h3 style="margin-bottom: 0px">Forager: an Edibles Atlas</h3>
+          </div>
+          <div class="span5">
+            <div style="float: right">
+              {{loginButtons align="right"}}
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="span6">
+            {{> mapbox}}
+          </div>
+          <div class="span4">
+            {{> details}}
+
+            {{#if currentUser}}
+            <div class="pagination-centered">
+              {{> filepicker}}
+            </div>
+            {{/if}}
+
+          </div>
+        </div>
+      </div>
+
+      <div class="span1"> </div>
+    </div>
+    <div class="row">
+      <div class="span12">
+        <div id="disclaimer"><br /><br /><p>
+            DISCLAIMER: It is <span class="hilite">your responsibility to gain a positive identification of edibles</span> before consuming anything
+            discovered in the wild. Consult multiple resources & experienced foragers, beware of "poisonous look-alikes," and be judicious when choosing grounds for harvest as the urban environment is often tainted with chemicals and animal waste. 
+        </p></div>
+        <div id="footer"><p>
+        <a href="http://urbanedibles.innovatepdx.com">Notes</a>
+        |
+        <a href="http://github.com">Code</a>
+        |
+        <a href="http://github.com">Contribute!</a>
+        </p></div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="map">
+  <div class="map">
+    {{#constant}}
+      <svg width="500" height="500">
+        <circle class="callout" cx=-100 cy=-100></circle>
+        <g class="circles"></g>
+        <g class="labels"></g>
+      </svg>
+    {{/constant}}
+    <div>
+    </div>
+  </div>
+</template>
+
+<template name="details">
+  <div class="details">
+    {{#if edible}}
+      {{#with edible}}
+        <h1>{{title}}</h1>
+
+        <div class="description">{{description}}</div>
+
+        <div class="rsvp-buttons">
+          <p><small>Posted by {{creatorName}}</small></p>
+        </div>
+
+        {{#if canRemove}}
+          <div class="alert alert-info"><small>
+              You posted this edible so if you like, you could
+              <b><a href="#" class="remove">delete this listing</a></b>.
+          </small></div>
+        {{/if}}
+      {{/with}}
+    {{else}}
+      <h2 class="muted pagination-centered">
+        {{#if anyEdibles}}
+        {{else}}
+          Sign in to add edibles
+        {{/if}}
+      </h1>
+    {{/if}}
+  </div>
+</template>
+
+<template name="createDialog">
+  <div class="mask"> </div>
+  <div class="modal">
+    <div class="modal-header">
+      <button type="button" class="close cancel">&times;</button>
+      <h3>Add edible</h3>
+    </div>
+
+    <div class="modal-body">
+      {{#if error}}
+        <div class="alert alert-error">{{error}}</div>
+      {{/if}}
+
+      <label>Title</label>
+      <input type="text" class="title span5">
+
+      <label>Description</label>
+      <textarea class="description span5"></textarea>
+
+      <label class="checkbox">
+        <input type="checkbox" class="private">
+        Private edible &mdash; ...
+      </label>
+    </div>
+
+    <div class="modal-footer">
+      <a href="#" class="btn cancel">Cancel</a>
+      <a href="#" class="btn btn-primary save">Add edible</a>
+    </div>
+  </div>
+</template>
+

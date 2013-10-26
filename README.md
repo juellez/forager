@@ -1,7 +1,7 @@
 FORAGER
 =======
 
-Inspired by UrbanEdibles.org - the next course
+Inspired by UrbanEdibles.org - the next course.
 
 ### Resources & Research
 A quick roundup of related datasets, communities, resources, etc.
